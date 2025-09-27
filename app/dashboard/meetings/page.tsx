@@ -70,51 +70,6 @@ export default function MeetingsPage() {
 
       {/* Main Content */}
       <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                <Calendar className="w-5 h-5 text-blue-600" />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">3</span>
-            </div>
-            <h3 className="font-medium text-gray-900 mt-2">Today</h3>
-            <p className="text-sm text-gray-500">Meetings scheduled</p>
-          </div>
-          
-          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
-                <Clock className="w-5 h-5 text-green-600" />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">2.5h</span>
-            </div>
-            <h3 className="font-medium text-gray-900 mt-2">Total Time</h3>
-            <p className="text-sm text-gray-500">Today's meetings</p>
-          </div>
-          
-          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
-                <Users className="w-5 h-5 text-purple-600" />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">12</span>
-            </div>
-            <h3 className="font-medium text-gray-900 mt-2">Attendees</h3>
-            <p className="text-sm text-gray-500">Total participants</p>
-          </div>
-          
-          <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-            <div className="flex items-center justify-between">
-              <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
-                <Video className="w-5 h-5 text-orange-600" />
-              </div>
-              <span className="text-2xl font-bold text-gray-900">2</span>
-            </div>
-            <h3 className="font-medium text-gray-900 mt-2">Video Calls</h3>
-            <p className="text-sm text-gray-500">Online meetings</p>
-          </div>
-        </div>
 
         {/* Search and Filters - Calendly Style */}
         <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8">

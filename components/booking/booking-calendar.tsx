@@ -120,55 +120,36 @@ const BookingCalendar = ({
               >
                 {timeSlots.map((slot, i) => {
                   const formattedSlot = formatSlot(slot, timezone, hourType);
+                  const isSelected = selectedTime === formattedSlot;
+                  
                   return (
-                    <div role="list" key={i}>
-                      <div
-                        role="listitem"
-                        className="m-[10px_10px_10px_0] relative text-[15px]"
-                      >
-                        {/* Selected Time and Next Button */}
-                        {/* Selected Time and Next Button */}
-                        <div
-                          className={`absolute inset-0 z-20 flex items-center gap-1.5 justify-between
-                             transform transition-all duration-400 ease-in-out ${
-                               selectedTime === formattedSlot
-                                 ? "translate-x-0 opacity-100"
-                                 : "translate-x-full opacity-0"
-                             }`}
-                        >
+                    <div key={i} className="mb-3">
+                      {isSelected ? (
+                        <div className="flex gap-2">
                           <button
                             type="button"
-                            className="w-full h-[52px] text-white rounded-[4px] bg-black/60 font-semibold disabled:opacity-100 disabled:pointer-events-none tracking-wide"
+                            className="flex-1 h-[52px] px-4 bg-gray-100 text-gray-600 rounded-[4px] font-semibold text-sm"
                             disabled
                           >
                             {formattedSlot}
                           </button>
                           <button
                             type="button"
-                            className="w-full cursor-pointer h-[52px] bg-[rgb(0,105,255)] text-white rounded-[4px] hover:bg-[rgba(0,105,255,0.8)] font-semibold tracking-wide"
+                            className="flex-1 h-[52px] px-4 bg-blue-600 text-white rounded-[4px] font-semibold text-sm hover:bg-blue-700 transition-colors"
                             onClick={handleNext}
                           >
                             Next
                           </button>
                         </div>
-
-                        {/* Time Slot Button */}
-                        {/* Time Slot Button */}
-                        {/* Time Slot Button */}
+                      ) : (
                         <button
                           type="button"
-                          className={`w-full h-[52px] cursor-pointer border border-[rgba(0,105,255,0.5)] text-[rgb(0,105,255)] rounded-[4px] font-semibold hover:border-2 hover:border-[rgb(0,105,255)] tracking-wide transition-all duration-400 ease-in-out
-                         ${
-                           selectedTime === formattedSlot
-                             ? "opacity-0"
-                             : "opacity-100"
-                         }
-                           `}
+                          className="w-full h-[52px] px-4 border border-gray-200 text-gray-700 rounded-[4px] font-semibold text-sm hover:border-blue-300 hover:bg-blue-50 transition-colors"
                           onClick={() => handleSelectSlot(slot)}
                         >
                           {formattedSlot}
                         </button>
-                      </div>
+                      )}
                     </div>
                   );
                 })}

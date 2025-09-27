@@ -227,9 +227,14 @@
   * {
     @apply border-border;
   }
+  
+  html {
+    overflow-x: hidden;
+  }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: "Urbanist", sans-serif;
+    overflow-x: hidden;
   }
   
   /* Enhanced typography */
@@ -360,5 +365,487 @@
   /* Success states */
   .success-text {
     @apply text-green-600 dark:text-green-400 text-sm;
+  }
+
+  /* Poll-specific styles */
+  .poll-card-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+    @apply w-full max-w-full;
+  }
+
+  .poll-card {
+    @apply bg-white border border-gray-200 rounded-lg p-6;
+    @apply min-w-0 max-w-full overflow-hidden;
+    @apply transition-all duration-200 hover:shadow-md hover:scale-[1.02];
+    @apply relative;
+  }
+
+  .poll-card-header {
+    @apply flex items-start justify-between min-w-0;
+    @apply relative z-10;
+  }
+
+  .poll-card-title {
+    @apply flex-1 min-w-0 mr-4;
+  }
+
+  .poll-card-actions {
+    @apply flex items-center gap-2 flex-shrink-0;
+    @apply relative z-20;
+  }
+
+  .poll-card-dropdown {
+    @apply z-50;
+  }
+
+  .poll-card-content {
+    @apply pt-0 min-w-0;
+  }
+
+  .poll-card-buttons {
+    @apply flex gap-2 pt-2 min-w-0;
+  }
+
+  .poll-time-slot {
+    @apply flex items-center justify-between p-4 border rounded-lg cursor-pointer transition-colors hover:border-primary;
+    @apply min-w-0 max-w-full;
+  }
+
+  .poll-time-slot.selected {
+    @apply border-primary;
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+
+  .poll-form-container {
+    @apply w-full max-w-4xl mx-auto;
+    @apply overflow-x-hidden;
+  }
+
+  .poll-form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+    @apply w-full min-w-0;
+  }
+
+  .poll-time-slot-form {
+    @apply flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 border rounded-lg;
+    @apply w-full min-w-0 relative;
+    @apply isolate; /* Creates new stacking context */
+  }
+
+  .poll-time-slot-inputs {
+    @apply flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4;
+    @apply min-w-0 w-full;
+  }
+
+  /* Calendar popover fixes */
+  .calendar-popover {
+    @apply z-50;
+  }
+
+  .calendar-popover-content {
+    @apply w-auto p-0 z-[60];
+    @apply shadow-lg border border-gray-200;
+    @apply bg-white rounded-md;
+  }
+
+  .calendar-container {
+    @apply relative z-10;
+    @apply overflow-visible;
+  }
+
+  /* Prevent calendar from being clipped */
+  .poll-time-slot-form {
+    @apply overflow-visible;
+  }
+
+  .poll-time-slot-inputs {
+    @apply overflow-visible;
+  }
+
+  /* Ensure calendar doesn't overlap with other elements */
+  [data-radix-popper-content-wrapper] {
+    z-index: 60 !important;
+  }
+
+  /* Calendar specific positioning */
+  .calendar-popover-content .rdp {
+    @apply m-0;
+  }
+
+  .calendar-popover-content .rdp-table {
+    @apply w-full;
+  }
+
+  .calendar-popover-content .rdp-cell {
+    @apply p-1;
+  }
+
+  /* React Day Picker (RDP) comprehensive fixes */
+  .rdp {
+    @apply w-full max-w-full overflow-hidden;
+    @apply m-0 p-0;
+  }
+
+  .rdp-table {
+    @apply w-full table-fixed;
+    @apply border-collapse;
+  }
+
+  .rdp-tbody {
+    @apply w-full;
+  }
+
+  .rdp-tbody tr {
+    @apply flex w-full;
+    @apply min-w-0;
+    @apply mt-2;
+  }
+
+  .rdp-tbody tr:first-child {
+    @apply mt-0;
+  }
+
+  .rdp-tbody td {
+    @apply flex-1 min-w-0;
+    @apply relative p-0 text-center text-sm;
+    @apply focus-within:relative focus-within:z-20;
+  }
+
+  /* RDP cell selected states - main selector */
+  .rdp-tbody td:has([aria-selected]) {
+    @apply bg-accent rounded-md;
+  }
+
+  .rdp-tbody td:has([aria-selected].day-outside) {
+    background-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  }
+
+  .rdp-tbody td:has([aria-selected].day-range-end) {
+    @apply rounded-r-md;
+  }
+
+  .rdp-tbody td > div {
+    @apply w-full h-8 flex items-center justify-center;
+    @apply min-w-0 max-w-full;
+    @apply rounded-md transition-colors;
+    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply cursor-pointer;
+    @apply font-normal;
+    @apply aria-selected:opacity-100;
+  }
+
+  /* Fix specific RDP button styling */
+  .rdp-button {
+    @apply w-full h-8 p-0;
+    @apply inline-flex items-center justify-center;
+    @apply rounded-md transition-colors;
+    @apply hover:bg-accent hover:text-accent-foreground;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply min-w-0 max-w-full;
+    @apply cursor-pointer;
+    @apply font-normal;
+    @apply aria-selected:opacity-100;
+  }
+
+  /* Calendar day states */
+  .rdp-day_outside {
+    @apply text-muted-foreground;
+  }
+
+  .rdp-day_selected {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .rdp-day_range_end {
+    @apply rounded-r-md;
+  }
+
+  .rdp-day_range_start {
+    @apply rounded-l-md;
+  }
+
+  /* Fix calendar overflow in containers */
+  .poll-time-slot-form .rdp {
+    @apply overflow-visible;
+  }
+
+  .poll-time-slot-inputs .rdp {
+    @apply overflow-visible;
+  }
+
+  .calendar-container .rdp {
+    @apply overflow-visible;
+  }
+
+  /* Fix complex RDP class combinations - removed to avoid circular dependencies */
+
+  /* RDP cell selected states */
+  .rdp-tbody td:has([aria-selected]) {
+    @apply bg-accent;
+  }
+
+  .rdp-tbody td:has([aria-selected].day-outside) {
+    background-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  }
+
+  .rdp-tbody td:has([aria-selected].day-range-end) {
+    @apply rounded-r-md;
+  }
+
+  .rdp-tbody td:has([aria-selected]) {
+    @apply rounded-md;
+  }
+
+  .rdp-tbody td > div.inline-flex {
+    @apply items-center justify-center gap-2 whitespace-nowrap rounded-md transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply hover:bg-accent hover:text-accent-foreground cursor-pointer;
+    @apply h-8 w-8 p-0 font-normal aria-selected:opacity-100 min-w-0 max-w-full;
+  }
+
+  /* Fix day outside styling */
+  .rdp-tbody td > div.day-outside {
+    @apply text-muted-foreground;
+  }
+
+  .rdp-tbody td > div.day-outside.aria-selected {
+    background-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+    @apply text-muted-foreground;
+  }
+
+  /* Calendar component day-outside selected state */
+  .day-outside.aria-selected {
+    background-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  }
+
+  .poll-stats-row {
+    @apply flex flex-wrap items-center gap-4 text-sm text-gray-500;
+    @apply w-full min-w-0;
+  }
+
+  .poll-actions {
+    @apply flex flex-col sm:flex-row gap-2;
+    @apply w-full;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Overflow fixes */
+  .overflow-container {
+    @apply overflow-x-auto overflow-y-visible;
+  }
+  
+  .modal-content {
+    @apply max-h-[90vh] overflow-y-auto;
+  }
+  
+  .form-container {
+    @apply max-w-full overflow-hidden;
+  }
+  
+  .time-slot-container {
+    @apply min-w-0 flex-shrink-0;
+  }
+
+  /* Scheduling page layout fixes */
+  .scheduling-container {
+    @apply w-full min-h-screen;
+    @apply relative z-0;
+  }
+
+  .scheduling-header {
+    @apply relative z-10;
+    @apply bg-white border-b border-gray-200;
+  }
+
+  .scheduling-content {
+    @apply relative z-0;
+    @apply w-full px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  .scheduling-tabs {
+    @apply relative z-0;
+    @apply w-full;
+  }
+
+  .scheduling-tab-content {
+    @apply relative z-0;
+    @apply mt-6;
+  }
+
+  /* Prevent header overlap */
+  .scheduling-header-content {
+    @apply flex items-center justify-between py-6;
+    @apply relative z-10;
+  }
+
+  .scheduling-header-actions {
+    @apply flex space-x-3;
+    @apply relative z-10;
+  }
+
+  /* Modal z-index management */
+  .scheduling-modal {
+    @apply fixed inset-0 z-50;
+    @apply overflow-y-auto;
+  }
+
+  .scheduling-modal-backdrop {
+    @apply fixed inset-0 bg-gray-500 bg-opacity-75;
+    @apply transition-opacity;
+  }
+
+  .scheduling-modal-content {
+    @apply relative z-50;
+    @apply inline-block align-bottom bg-white rounded-lg;
+    @apply text-left overflow-hidden shadow-xl;
+    @apply transform transition-all;
+    @apply sm:my-8 sm:align-middle sm:max-w-lg sm:w-full;
+  }
+
+  /* Ensure modals appear above everything */
+  .scheduling-modal-overlay {
+    @apply fixed inset-0 z-[100];
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    .page-container {
+      @apply px-4;
+    }
+    
+    .poll-card-grid {
+      @apply grid-cols-1 gap-4;
+    }
+    
+    .poll-card {
+      @apply p-4;
+    }
+    
+    .poll-time-slot {
+      @apply flex-col items-start gap-2 p-3;
+    }
+    
+    .poll-time-slot-form {
+      @apply flex-col items-stretch gap-3 p-3;
+    }
+    
+    .poll-time-slot-inputs {
+      @apply grid-cols-1 gap-3;
+    }
+    
+    .poll-stats-row {
+      @apply flex-col items-start gap-2;
+    }
+    
+    .poll-actions {
+      @apply flex-col gap-2;
+    }
+    
+    .poll-form-container {
+      @apply mx-2 p-4;
+    }
+    
+    .poll-form-grid {
+      @apply grid-cols-1 gap-4;
+    }
+
+    /* Mobile calendar positioning */
+    .calendar-popover-content {
+      @apply fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+      @apply w-[90vw] max-w-sm;
+    }
+
+    .calendar-container {
+      @apply w-full;
+    }
+    
+    .modal-content {
+      @apply max-h-[95vh] mx-2;
+    }
+    
+    .form-container {
+      @apply px-2;
+    }
+
+    /* Mobile scheduling layout */
+    .scheduling-container {
+      @apply min-h-screen;
+    }
+
+    .scheduling-header-content {
+      @apply flex-col items-start gap-4 py-4;
+    }
+
+    .scheduling-header-actions {
+      @apply flex-col w-full gap-2;
+    }
+
+    .scheduling-content {
+      @apply px-2 py-4;
+    }
+
+    .scheduling-tab-content {
+      @apply mt-4;
+    }
+
+    .scheduling-modal-content {
+      @apply mx-2 max-w-full;
+    }
+
+    /* Mobile poll card optimizations */
+    .poll-card {
+      @apply p-4;
+    }
+
+    .poll-card-header {
+      @apply flex-col items-start gap-3;
+    }
+
+    .poll-card-title {
+      @apply w-full mr-0;
+    }
+
+    .poll-card-actions {
+      @apply w-full justify-between;
+    }
+
+    .poll-card-buttons {
+      @apply flex-col gap-2;
+    }
+
+    .poll-card-buttons .flex-1 {
+      @apply w-full;
+    }
+
+    /* Mobile RDP calendar fixes */
+    .rdp {
+      @apply text-sm;
+    }
+
+    .rdp-tbody tr {
+      @apply mt-1;
+    }
+
+    .rdp-tbody td > div {
+      @apply h-7 text-xs;
+    }
+
+    .rdp-button {
+      @apply h-7 text-xs;
+    }
+
+    .calendar-popover-content {
+      @apply w-[95vw] max-w-xs;
+    }
   }
 }

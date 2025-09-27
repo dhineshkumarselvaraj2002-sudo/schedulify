@@ -9,6 +9,7 @@ import {
   LucideIcon,
   Calendar,
   CalendarDays,
+  BarChart3,
 } from "lucide-react";
 import {
   Sidebar,
@@ -39,8 +40,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   const items: ItemType[] = [
     {title: "Scheduling", url: PROTECTED_ROUTES.SCHEDULING,icon: CalendarDays,},
-    {title: "Event types", url: PROTECTED_ROUTES.EVENT_TYPES,icon: LinkIcon,},
-    {title: "Scheduled Events",url: PROTECTED_ROUTES.SCHEDULED_EVENTS,icon: Calendar,},
+    // {title: "Event types", url: PROTECTED_ROUTES.EVENT_TYPES,icon: LinkIcon,},
     {title: "Meetings",url: PROTECTED_ROUTES.MEETINGS,icon: CalendarRange,},
     {title: "Integrations & apps",url: PROTECTED_ROUTES.INTEGRATIONS,icon: LayoutGrid,separator: true,},
     {title: "Availability",url: PROTECTED_ROUTES.AVAILABILITY,icon: ClockIcon,},  
