@@ -1,14 +1,9 @@
 {
   "pages": {
-    "/dashboard/scheduling/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/scheduling/page.js"
-    ],
-    "/dashboard/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/layout.js"
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,20 +11,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/dashboard/meetings/page": [
+    "/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/meetings/page.js"
+      "static/chunks/app/dashboard/page.js"
     ],
-    "/dashboard/availability/page": [
+    "/dashboard/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/availability/page.js"
+      "static/chunks/app/dashboard/layout.js"
     ],
-    "/dashboard/integrations/page": [
+    "/dashboard/meeting-types/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/integrations/page.js"
+      "static/chunks/app/dashboard/meeting-types/page.js"
+    ],
+    "/dashboard/scheduling/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/scheduling/page.js"
     ]
   }
 }
